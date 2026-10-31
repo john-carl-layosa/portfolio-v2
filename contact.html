@@ -1,72 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="style.css" />
-        <title>John Carl Layosa | Contact</title>
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-        <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
-    </head>
-    <body>
-        <div id="particles-js"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Connect with John Carl Layosa about internship opportunities, projects, and technology.">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>Contact | John Carl Layosa</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="topnav px-3 py-2 d-flex justify-content-between align-items-center" id="myTopnav">
-            <a href="index.html" class="logo">JC Layosa</a>
-            <div class="header-right d-flex align-items-center">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="tech-stack.html">TECH STACK</a>
-                <a href="experience.html">EXPERIENCE</a>
-                <a class="active" href="contact.html">CONTACT</a>
-                <a class="icon ms-3" onclick="toggleMobileMenu()">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="JC Layosa home">
+      <span class="monogram">jc<span>.</span></span>
+      <span>JOHN CARL<br>LAYOSA</span>
+    </a>
 
-        <div class="offcanvas offcanvas-custom" id="mobileMenu">
-            <div class="offcanvas-header p-0 border-0 text-end">
-                <button type="button" class="btn-close btn-close-white" onclick="toggleMobileMenu()"></button>
-            </div>
-            <div class="offcanvas-body">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="tech-stack.html">TECH STACK</a>
-                <a href="experience.html">EXPERIENCE</a>
-            </div>
-        </div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" hidden>
+      Menu <span aria-hidden="true">+</span>
+    </button>
 
-        <div class="contact-content">
-            <h1 class="animate__animated animate__fadeInDown animate__delay-0s">Contact Me</h1>
-            <h2 class="animate__animated animate__fadeInUp animate__delay-0s">Have any inquiries? Reach out to me!</h2>
-        </div>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tech-stack.html">Toolkit</a>
+      <a href="projects.html">Projects</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
 
-        <div class="wrapper animate__animated animate__flipInX animate__delay-0s">
-            <a href="https://www.facebook.com/johncarl.layosa/" target="_blank" class="contact-button">
-                <div class="icon">
-                    <i class="fa-brands fa-facebook"></i>
-                    <span>Facebook</span>
-                </div>
-            </a>
-            <a href="https://www.linkedin.com/in/layosa-j-408340358" target="_blank" class="contact-button">
-                <div class="icon">
-                    <i class="fa-brands fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </div>
-            </a>
-            <a href="https://github.com/john-carl-layosa" target="_blank" class="contact-button">
-                <div class="icon">
-                    <i class="fa-brands fa-github"></i>
-                    <span>GitHub</span>
-                </div>
-            </a>
-        </div>
+  <main id="main">
+    <section class="page-intro">
+      <p class="eyebrow">05 / LET’S CONNECT</p>
+      <h1>Good things start<br><em>with a conversation.</em></h1>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="scripts.js"></script>
-    </body>
+      <p class="intro-copy">
+        Have any inquiries? Reach out to me! I’d be glad to connect about
+        internship opportunities, projects, or shared interests in technology.
+      </p>
+    </section>
+
+    <section class="contact-section">
+      <p class="eyebrow">FIND ME HERE</p>
+
+      <a
+        class="contact-row"
+        href="https://www.linkedin.com/in/layosa-j-408340358"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>01 / PROFESSIONAL</span>
+        <h2>LinkedIn</h2>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <a
+        class="contact-row"
+        href="https://github.com/john-carl-layosa"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>02 / CODE &amp; PROJECTS</span>
+        <h2>GitHub</h2>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <a
+        class="contact-row"
+        href="https://www.facebook.com/johncarl.layosa/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>03 / SAY HELLO</span>
+        <h2>Facebook</h2>
+        <span class="contact-arrow">↗</span>
+      </a>
+    </section>
+
+    <section class="section contact-note">
+      <span class="handwritten">See you in the next chapter.</span>
+      <p class="muted">
+        John Carl Layosa / IT student &amp; aspiring IT professional
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-sign" href="index.html">
+      JC Layosa<span> / Always a work in progress.</span>
+    </a>
+
+    <div>
+      <a href="https://github.com/john-carl-layosa" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/layosa-j-408340358" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="#main">Back to top ↑</a>
+    </div>
+
+    <p>Built with curiosity. HTML, CSS &amp; JavaScript.</p>
+  </footer>
+
+  <dialog class="lightbox" aria-labelledby="preview-title">
+    <div class="lightbox-top">
+      <h2 id="preview-title">Image preview</h2>
+      <button class="close-preview" autofocus>Close ×</button>
+    </div>
+
+    <div class="preview-stage">
+      <img class="preview-image" src="pic.jpg" alt="">
+    </div>
+
+    <div class="preview-bottom">
+      <button class="preview-prev" aria-label="Previous image">← Previous</button>
+      <span class="preview-count" aria-live="polite"></span>
+      <a class="preview-original" href="pic.jpg" target="_blank" rel="noopener noreferrer">Open original ↗</a>
+      <button class="preview-next" aria-label="Next image">Next →</button>
+    </div>
+  </dialog>
+</body>
 </html>

@@ -1,159 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>John Carl Layosa | Tech Stack</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore John Carl Layosa's growing toolkit of programming languages, frameworks, developer tools, and databases.">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>Toolkit | John Carl Layosa</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-        <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
-    </head>
-    <body>
-        <div id="particles-js"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="JC Layosa home">
+      <span class="monogram">jc<span>.</span></span>
+      <span>JOHN CARL<br>LAYOSA</span>
+    </a>
 
-        <div class="topnav px-3 py-2 d-flex justify-content-between align-items-center" id="myTopnav">
-            <a href="index.html" class="logo">JC Layosa</a>
-            <div class="header-right d-flex align-items-center">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a class="active" href="tech-stack.html">TECH STACK</a>
-                <a href="experience.html">EXPERIENCE</a>
-                <a href="contact.html">CONTACT</a>
-                <a class="icon ms-3" onclick="toggleMobileMenu()">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" hidden>
+      Menu <span aria-hidden="true">+</span>
+    </button>
 
-        <div class="offcanvas offcanvas-custom" id="mobileMenu">
-            <div class="offcanvas-header p-0 border-0 text-end">
-                <button type="button" class="btn-close btn-close-white" onclick="toggleMobileMenu()"></button>
-            </div>
-            <div class="offcanvas-body">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="experience.html">EXPERIENCE</a>
-                <a href="contact.html">CONTACT</a>
-            </div>
-        </div>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tech-stack.html" aria-current="page">Toolkit</a>
+      <a href="projects.html">Projects</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-        <div class="experience-content">
-            <h1 class="animate__animated animate__fadeInDown animate__delay-0s">Tech Stack</h1>
-            <p class="animate__animated animate__fadeInUp animate__delay-0s">
-                As a passionate learner, I'm currently exploring and building my skills with a range of technologies.
-                My tech stack includes tools and languages I'm actively studying and using in personal projects to
-                strengthen my understanding. I'm focused on learning best practices and building a solid foundation
-                for creating real-world applications. Below are the key technologies I'm currently working with and
-                have experience with.
-            </p>
-        </div>
- 
-        <div class="language-header animate__animated animate__flipInX">
-            <h2>Programming Languages & <br>Frameworks</h2>
-        </div>
-        <div class="techstack-wrapper">
-            <section class="techstack-section">
-                <div class="techstack-content">
-                    <div class="tech-item">
-                        <img src="HTML.jpg" alt="HTML" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">HTML</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="CSS3.jpg" alt="CSS" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">CSS</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="JavaScript.jpg" alt="Java" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">JavaScript</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="JAVA.jpg" alt="C" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Java</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="C.jpg" alt="C" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">C</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Flutter.jpg" alt="Flutter" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Flutter</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Dart.jpg" alt="Dart" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Dart</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Node.js.jpg" alt="Node.js" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Node.js</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Express.js.jpg" alt="Express.js" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Express.js</div>
-                    </div>
-                </div>
-            </section>
-        </div>
+  <main id="main">
+    <section class="page-intro">
+      <p class="eyebrow">02 / TOOLS OF THE TRADE</p>
+      <h1>A toolkit.<br><em>Always evolving.</em></h1>
 
-        <div class="devtool-header animate__animated animate__flipInX">
-            <h2>Developer Tools & Platforms</h2>
-        </div>
-        <div class="techstack-wrapper">
-            <section class="techstack-section">
-                <div class="techstack-content">
-                    <div class="tech-item">
-                        <img src="VSCode.jpg" alt="Visual Studio Code" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Visual Studio Code</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Android Studio.jpg" alt="Android Studio" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Android Studio</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Oracle Apex.jpg" alt="Oracle APEX" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Oracle APEX</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Git.jpg" alt="GitHub" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Git</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="GitHub.jpg" alt="GitHub" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">GitHub</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Postman.jpg" alt="Postman" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Postman</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Render.jpg" alt="Render" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Render</div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="devtool-header animate__animated animate__flipInX">
-            <h2>Databases</h2>
-        </div>
-        <div class="techstack-wrapper">
-            <section class="techstack-section">
-                <div class="techstack-content">
-                    <div class="tech-item">
-                        <img src="MongoDB.jpg" alt="MongoDB" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">MongoDB</div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="Firebase.jpg" alt="Firebase" class="animate__animated animate__flipInY" />
-                        <div class="animate__animated animate__zoomIn">Firebase</div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="scripts.js"></script>
-    </body>
+      <p class="intro-copy">
+        These are technologies I’m actively learning and have experience
+        with. My focus is on good foundations and practical understanding,
+        one project at a time.
+      </p>
+    </section>
+
+    <section class="section toolkit-section" data-reveal>
+      <div>
+        <p class="eyebrow">01 / TOOLKIT</p>
+        <h2>Languages &amp; frameworks</h2>
+        <p class="muted">
+          The building blocks I’m studying and using in personal projects.
+        </p>
+      </div>
+
+      <ul class="tool-list">
+        <li>
+          <img src="HTML.jpg" alt="" loading="lazy">
+          <span>HTML</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="CSS3.jpg" alt="" loading="lazy">
+          <span>CSS</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="JavaScript.jpg" alt="" loading="lazy">
+          <span>JavaScript</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="JAVA.jpg" alt="" loading="lazy">
+          <span>Java</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="C.jpg" alt="" loading="lazy">
+          <span>C</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Flutter.jpg" alt="" loading="lazy">
+          <span>Flutter</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Dart.jpg" alt="" loading="lazy">
+          <span>Dart</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Node.js.jpg" alt="" loading="lazy">
+          <span>Node.js</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Express.js.jpg" alt="" loading="lazy">
+          <span>Express.js</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section toolkit-section" data-reveal>
+      <div>
+        <p class="eyebrow">02 / TOOLKIT</p>
+        <h2>Developer tools &amp; platforms</h2>
+        <p class="muted">
+          The tools that help me develop, test, collaborate, and deploy.
+        </p>
+      </div>
+
+      <ul class="tool-list">
+        <li>
+          <img src="VSCode.jpg" alt="" loading="lazy">
+          <span>Visual Studio Code</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Android Studio.jpg" alt="" loading="lazy">
+          <span>Android Studio</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Oracle Apex.jpg" alt="" loading="lazy">
+          <span>Oracle APEX</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Git.jpg" alt="" loading="lazy">
+          <span>Git</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="GitHub.jpg" alt="" loading="lazy">
+          <span>GitHub</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Postman.jpg" alt="" loading="lazy">
+          <span>Postman</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Render.jpg" alt="" loading="lazy">
+          <span>Render</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section toolkit-section" data-reveal>
+      <div>
+        <p class="eyebrow">03 / TOOLKIT</p>
+        <h2>Databases</h2>
+        <p class="muted">
+          Exploring how applications store, organize, and retrieve information.
+        </p>
+      </div>
+
+      <ul class="tool-list">
+        <li>
+          <img src="MongoDB.jpg" alt="" loading="lazy">
+          <span>MongoDB</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+
+        <li>
+          <img src="Firebase.jpg" alt="" loading="lazy">
+          <span>Firebase</span>
+          <span aria-hidden="true">↗</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-sign" href="index.html">
+      JC Layosa<span> / Always a work in progress.</span>
+    </a>
+
+    <div>
+      <a href="https://github.com/john-carl-layosa" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/layosa-j-408340358" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="#main">Back to top ↑</a>
+    </div>
+
+    <p>Built with curiosity. HTML, CSS &amp; JavaScript.</p>
+  </footer>
+
+  <dialog class="lightbox" aria-labelledby="preview-title">
+    <div class="lightbox-top">
+      <h2 id="preview-title">Image preview</h2>
+      <button class="close-preview" autofocus>Close ×</button>
+    </div>
+
+    <div class="preview-stage">
+      <img class="preview-image" src="pic.jpg" alt="">
+    </div>
+
+    <div class="preview-bottom">
+      <button class="preview-prev" aria-label="Previous image">← Previous</button>
+      <span class="preview-count" aria-live="polite"></span>
+      <a class="preview-original" href="pic.jpg" target="_blank" rel="noopener noreferrer">Open original ↗</a>
+      <button class="preview-next" aria-label="Next image">Next →</button>
+    </div>
+  </dialog>
+</body>
 </html>

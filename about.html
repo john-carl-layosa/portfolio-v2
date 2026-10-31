@@ -1,71 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John Carl Layosa | About</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet John Carl Layosa, an IT student exploring web development, interface design, networking, and databases.">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>About | John Carl Layosa</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div id="particles-js"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="topnav px-3 py-2 d-flex justify-content-between align-items-center" id="myTopnav">
-        <a href="index.html" class="logo">JC Layosa</a>
-        <div class="header-right d-flex align-items-center">
-            <a href="index.html">HOME</a>
-            <a class="active" href="about.html">ABOUT</a>
-            <a href="tech-stack.html">TECH STACK</a>
-            <a href="experience.html">EXPERIENCE</a>
-            <a href="contact.html">CONTACT</a>
-            <a class="icon ms-3" onclick="toggleMobileMenu()">
-                <i class="fa fa-bars"></i>
-            </a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="JC Layosa home">
+      <span class="monogram">jc<span>.</span></span>
+      <span>JOHN CARL<br>LAYOSA</span>
+    </a>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" hidden>
+      Menu <span aria-hidden="true">+</span>
+    </button>
+
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="tech-stack.html">Toolkit</a>
+      <a href="projects.html">Projects</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-intro">
+      <p class="eyebrow">01 / THE PERSON BEHIND THE WORK</p>
+      <h1>A curious mind.<br><em>A practical ambition.</em></h1>
+      <p class="intro-copy">
+        I'm John Carl Layosa. You can call me JC.
+      </p>
+    </section>
+
+    <section class="about-layout section" data-reveal>
+      <figure class="about-photo">
+        <img
+          src="Photo.jpg"
+          alt="JC Layosa holding a coffee in an elevator"
+          loading="lazy"
+        >
+        <figcaption>Beyond the screen / JC</figcaption>
+      </figure>
+
+      <div class="prose about-story">
+        <p class="eyebrow">A LITTLE ABOUT ME</p>
+        <h2>Learning by<br><em>making things.</em></h2>
+
+        <p>
+          Hi, I'm John Carl Layosa, a student currently pursuing a degree
+          in Information Technology. I’m deeply fascinated by the world
+          of tech and enjoy exploring areas such as programming and
+          system development. With a strong ambition to become a web
+          developer, I continuously work on enhancing my skills.
+        </p>
+
+        <p>
+          I’m a fast learner and highly adaptable, always open to new
+          challenges and opportunities. My ultimate goal is to grow into
+          a skilled professional who can create innovative digital
+          solutions and make a positive impact in the tech industry.
+        </p>
+
+        <p>
+          I enjoy designing web and mobile interfaces, understanding how
+          backend systems work, and exploring networking and databases.
+          Through my college journey, I’m discovering how much I enjoy
+          connecting these pieces through full-stack development.
+        </p>
+      </div>
+    </section>
+
+    <section class="section education" data-reveal>
+      <p class="eyebrow">EDUCATION / MY FOUNDATION</p>
+
+      <div class="education-row">
+        <span class="big-number">04</span>
+
+        <div>
+          <h2>BS Information Technology</h2>
+          <p>St. Dominic College of Asia</p>
+          <span class="muted">
+            Fourth-year student · Bacoor City, Cavite
+          </span>
         </div>
+
+        <span class="small-label">LEARNING → APPLYING → GROWING</span>
+      </div>
+    </section>
+
+    <section class="section split-section" data-reveal>
+      <div>
+        <p class="eyebrow">WHAT I BRING</p>
+        <h2>A learner's mindset.<br><em>A builder's energy.</em></h2>
+      </div>
+
+      <div class="principles">
+        <div>
+          <span>01</span>
+          <h3>Curiosity</h3>
+          <p>
+            Explore how things work, then put that understanding into practice.
+          </p>
+        </div>
+
+        <div>
+          <span>02</span>
+          <h3>Adaptability</h3>
+          <p>
+            Stay open to unfamiliar tools, feedback, and new challenges.
+          </p>
+        </div>
+
+        <div>
+          <span>03</span>
+          <h3>Collaboration</h3>
+          <p>
+            Learn with others and contribute to a shared goal.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-sign" href="index.html">
+      JC Layosa<span> / Always a work in progress.</span>
+    </a>
+
+    <div>
+      <a href="https://github.com/john-carl-layosa" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/layosa-j-408340358" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="#main">Back to top ↑</a>
     </div>
 
-    <div class="offcanvas offcanvas-custom" id="mobileMenu">
-        <div class="offcanvas-header p-0 border-0 text-end">
-            <button type="button" class="btn-close btn-close-white" onclick="toggleMobileMenu()"></button>
-        </div>
-        <div class="offcanvas-body">
-            <a href="index.html">HOME</a>
-            <a href="tech-stack.html">TECH STACK</a>
-            <a href="experience.html">EXPERIENCE</a>
-            <a href="contact.html">CONTACT</a>
-        </div>
+    <p>Built with curiosity. HTML, CSS &amp; JavaScript.</p>
+  </footer>
+
+  <dialog class="lightbox" aria-labelledby="preview-title">
+    <div class="lightbox-top">
+      <h2 id="preview-title">Image preview</h2>
+      <button class="close-preview" autofocus>Close ×</button>
     </div>
 
-    <div class="about-content text-center">
-        <h1 class="animate__animated animate__fadeInDown">About Me</h1>
-
-        <div class="about-main">
-            <div class="photo">
-                <img src="Photo.jpg" alt="Profile Photo" class="animate__animated animate__zoomIn" />
-            </div>
-
-            <div>
-                <p class="animate__animated animate__fadeInUp px-4">
-                    Hi, I'm John Carl Layosa, a student currently pursuing a degree in Information Technology. 
-                    I’m deeply fascinated by the world of tech and enjoy exploring areas such as programming and system development. 
-                    With a strong ambition to become a web developer, I continuously work on enhancing my skills.
-                </p>
-                <p class="animate__animated animate__fadeInUp px-4" style="line-height: 2;">
-                    I’m a fast learner and highly adaptable, always open to new challenges and opportunities. 
-                    My ultimate goal is to grow into a skilled professional who can create innovative digital solutions 
-                    and make a positive impact in the tech industry.
-                </p>
-            </div>
-        </div>
+    <div class="preview-stage">
+      <img class="preview-image" src="pic.jpg" alt="">
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts.js"></script>
+    <div class="preview-bottom">
+      <button class="preview-prev" aria-label="Previous image">← Previous</button>
+      <span class="preview-count" aria-live="polite"></span>
+      <a class="preview-original" href="pic.jpg" target="_blank" rel="noopener noreferrer">Open original ↗</a>
+      <button class="preview-next" aria-label="Next image">Next →</button>
+    </div>
+  </dialog>
 </body>
 </html>
