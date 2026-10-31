@@ -1,0 +1,146 @@
+/* Additions only: retain the existing portfolio design and shared stylesheet. */
+
+.archive-links,
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 28px;
+}
+
+.archive-links a {
+  font: 0.78rem var(--mono);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+}
+
+.credential-description {
+  margin: 18px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.record-details {
+  border-top: 1px solid var(--line);
+  margin-bottom: 18px;
+  font-size: 0.83rem;
+}
+
+.record-details p {
+  margin: 0 0 14px;
+  overflow-wrap: anywhere;
+}
+
+.certificate-caption > div {
+  min-width: 0;
+}
+
+.certificate-caption h2 {
+  overflow-wrap: anywhere;
+}
+
+.certificate-meta {
+  flex-wrap: wrap;
+}
+
+.certificate-meta .eyebrow {
+  font-size: 0.62rem;
+}
+
+.project-case + .project-case,
+.project-group-heading {
+  border-top: 1px solid var(--line);
+  padding-top: 45px;
+}
+
+.project-group-heading {
+  margin-bottom: 45px;
+}
+
+.project-group-heading > p:last-child {
+  max-width: 70ch;
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.project-case-heading > div,
+.project-body > * {
+  min-width: 0;
+}
+
+.project-case-heading h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  overflow-wrap: anywhere;
+}
+
+.project-evidence {
+  align-self: start;
+}
+
+.project-evidence-image {
+  display: block;
+  position: relative;
+  background: var(--soft);
+  padding: 14px;
+  border: 1px solid var(--line);
+}
+
+.project-evidence-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.project-evidence figcaption,
+.evidence-grid figcaption {
+  font: 0.72rem / 1.6 var(--mono);
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  padding: 20px 0 30px;
+}
+
+.project-facts dd {
+  overflow-wrap: anywhere;
+}
+
+#credentials,
+#achievements,
+#leadership,
+#rxbox,
+#course-projects {
+  scroll-margin-top: 30px;
+}
+
+@media (max-width: 720px) {
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-evidence-image img {
+    height: 240px;
+  }
+
+  .certificate-gallery {
+    gap: 40px;
+  }
+
+  .certificate-entry:nth-child(even) {
+    padding-top: 0;
+  }
+
+  .project-case-heading {
+    gap: 16px;
+  }
+
+  .archive-links {
+    gap: 14px;
+  }
+}

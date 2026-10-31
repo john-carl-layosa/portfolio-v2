@@ -3,23 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore John Carl Layosa's IT projects, including DomiNotes, an offline-capable notes application built with Flutter Web.">
+
+  <meta
+    name="description"
+    content="Explore John Carl Layosa's projects, including Rx Box, Rhythms of Relief, AI-Enabled Smart Trash Bin, and DomiNotes."
+  >
+
   <meta name="theme-color" content="#f4f1e9">
+
   <title>Projects | John Carl Layosa</title>
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="portfolio-updates.css">
+
   <script src="scripts.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- HEADER -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="JC Layosa home">
       <span class="monogram">jc<span>.</span></span>
       <span>JOHN CARL<br>LAYOSA</span>
     </a>
 
-    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" hidden>
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      hidden
+    >
       Menu <span aria-hidden="true">+</span>
     </button>
 
@@ -34,46 +50,757 @@
   </header>
 
   <main id="main">
+    <!-- PAGE INTRODUCTION -->
     <section class="page-intro">
       <p class="eyebrow">03 / PROJECT ARCHIVE</p>
+
       <h1>Ideas, put<br><em>into practice.</em></h1>
 
       <p class="intro-copy">
-        A closer look at what I’m building, the tools behind it,
-        and the details that make it useful.
+        From offline notes to connected devices: projects that bring
+        together interface design, application development, and hardware.
+        Each entry identifies my individual role.
       </p>
+
+      <nav class="archive-links" aria-label="Explore this archive">
+        <a href="#rxbox">IoT &amp; capstone ↓</a>
+        <a href="#course-projects">Other &amp; course projects ↓</a>
+        <a href="experience.html">Achievements ↗</a>
+      </nav>
     </section>
 
-    <section class="project-archive">
+    <!-- PROJECT ARCHIVE -->
+    <section class="project-archive" aria-label="Project archive">
       <div class="filter-toolbar" aria-label="Filter projects">
-        <span class="eyebrow">SHOW</span>
+        <span class="eyebrow">BROWSE</span>
 
         <div class="filter-buttons" hidden>
-          <button data-filter="all" aria-pressed="true">All work</button>
-          <button data-filter="web" aria-pressed="false">Web</button>
-          <button data-filter="pwa" aria-pressed="false">PWA / Offline</button>
+          <button data-filter="all" aria-pressed="true">
+            All work
+          </button>
+
+          <button data-filter="web" aria-pressed="false">
+            Web
+          </button>
+
+          <button data-filter="pwa" aria-pressed="false">
+            PWA / Offline
+          </button>
+
+          <button data-filter="iot" aria-pressed="false">
+            IoT
+          </button>
         </div>
 
-        <span class="result-count" role="status">1 project</span>
+        <span class="result-count" role="status">4 projects</span>
       </div>
 
-      <article class="project-case" id="dominotes" data-category="web pwa">
+      <!-- =========================================
+           01 / RX BOX
+           ========================================= -->
+      <article class="project-case" id="rxbox" data-category="web iot">
         <div class="project-case-heading">
           <span class="big-number">01</span>
+
+          <div>
+            <p class="eyebrow">IOT / CAPSTONE · IN PROGRESS</p>
+
+            <h2>
+              Rx Box: AI-Driven Smart Pillbox<span class="title-period">.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-description">
+            <h3>Connected reminders.<br>Informed support.</h3>
+
+            <p>
+              An IoT capstone that connects a smart pillbox with a web
+              application to support medication routines for people with
+              hypertension and diabetes. It brings together medication
+              scheduling, reminders, adherence records, predictive behavior
+              analysis, and family monitoring. The supplied photographs show
+              the prototype and team; screenshots document the application
+              interface.
+            </p>
+
+            <dl class="project-facts">
+              <div>
+                <dt>OBJECTIVES</dt>
+
+                <dd>
+                  Support scheduled medication routines; connect the pillbox
+                  and application; record medication activity; help patients
+                  and authorized family members review adherence information.
+                </dd>
+              </div>
+
+              <div>
+                <dt>MY ROLE / CONTRIBUTION</dt>
+
+                <dd>
+                  Full-Stack Developer. My contribution covers web interface
+                  and backend development, connecting application features
+                  with medication information and monitoring workflows.
+                </dd>
+              </div>
+
+              <div>
+                <dt>APPLICATION TECHNOLOGIES</dt>
+                <dd>Next.js · Node.js · TypeScript · MongoDB Atlas</dd>
+              </div>
+
+              <div>
+                <dt>HARDWARE</dt>
+
+                <dd>
+                  ESP32 · Servo-driven pillbox · Ultrasonic pickup sensor ·
+                  Buzzer · LED · Wi-Fi
+                </dd>
+              </div>
+
+              <div>
+                <dt>TEAM</dt>
+
+                <dd>
+                  John Carl E. Layosa · Asher Daniel M. Tibayan ·
+                  Vincent Ace C. Fronteras · Kristine Mae B. Montajas
+                </dd>
+              </div>
+
+              <div>
+                <dt>STATUS / OUTPUT</dt>
+
+                <dd>
+                  In progress. A physical prototype, web application, team
+                  photographs, and interface screenshots are documented.
+                  Clinical effectiveness is not established by this portfolio
+                  evidence.
+                </dd>
+              </div>
+
+              <div>
+                <dt>DETECTION LIMIT</dt>
+
+                <dd>
+                  Sensor activity indicates pickup or access, not confirmed
+                  swallowing.
+                </dd>
+              </div>
+            </dl>
+
+            <div class="project-links">
+              <a
+                class="text-link"
+                href="https://github.com/Brook-sheet/med-reminder-web-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub source ↗
+              </a>
+
+              <a
+                class="button"
+                href="https://med-reminder-web-app.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live project ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="project-evidence">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-hardware.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box physical pillbox prototype"
+              >
+                <img
+                  src="assets/evidence/rxbox-hardware.jpg"
+                  alt="Rx Box physical pillbox prototype"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box physical pillbox prototype</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <details class="screen-details">
+          <summary>
+            Explore all supporting images <span>+</span>
+          </summary>
+
+          <div class="evidence-grid">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-login.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box sign-in interface"
+              >
+                <img
+                  src="assets/evidence/rxbox-login.jpg"
+                  alt="Rx Box sign-in interface"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box sign-in interface</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-dashboard.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box dashboard and daily loading order"
+              >
+                <img
+                  src="assets/evidence/rxbox-dashboard.jpg"
+                  alt="Rx Box dashboard and daily loading order"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>
+                Rx Box dashboard and daily loading order
+              </figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-chat.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box chat layout"
+              >
+                <img
+                  src="assets/evidence/rxbox-chat.jpg"
+                  alt="Rx Box chat layout"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box chat layout</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-medicines.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box medicine schedule interface"
+              >
+                <img
+                  src="assets/evidence/rxbox-medicines.jpg"
+                  alt="Rx Box medicine schedule interface"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box medicine schedule interface</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-history.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box medication history and reporting"
+              >
+                <img
+                  src="assets/evidence/rxbox-history.jpg"
+                  alt="Rx Box medication history and reporting"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box medication history and reporting</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-profile.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box profile layout"
+              >
+                <img
+                  src="assets/evidence/rxbox-profile.jpg"
+                  alt="Rx Box profile layout"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box profile layout</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-settings.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box monitoring settings"
+              >
+                <img
+                  src="assets/evidence/rxbox-settings.jpg"
+                  alt="Rx Box monitoring settings"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box monitoring settings</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-team-1.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box team with the prototype"
+              >
+                <img
+                  src="assets/evidence/rxbox-team-1.jpg"
+                  alt="Rx Box team with the prototype"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box team with the prototype</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/rxbox-team-2.jpg"
+                data-preview
+                data-gallery="rxbox"
+                data-title="Rx Box project team photograph"
+              >
+                <img
+                  src="assets/evidence/rxbox-team-2.jpg"
+                  alt="Rx Box project team photograph"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rx Box project team photograph</figcaption>
+            </figure>
+          </div>
+        </details>
+      </article>
+
+      <!-- OTHER AND COURSE PROJECTS -->
+      <div id="course-projects" class="project-group-heading">
+        <p class="eyebrow">OTHER &amp; COURSE PROJECTS</p>
+
+        <p>
+          Practical work in wellness, connected hardware, and offline
+          applications. Specific third-year course names and academic-year
+          assignments are not stated in the supplied material.
+        </p>
+      </div>
+
+      <!-- =========================================
+           02 / RHYTHMS OF RELIEF
+           ========================================= -->
+      <article class="project-case" id="wellness" data-category="web pwa">
+        <div class="project-case-heading">
+          <span class="big-number">02</span>
+
+          <div>
+            <p class="eyebrow">WEB APPLICATION / PROGRESSIVE WEB APP</p>
+            <h2>Rhythms of Relief<span class="title-period">.</span></h2>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-description">
+            <h3>A moment to pause.<br>A rhythm to return to.</h3>
+
+            <p>
+              A digital wellness Progressive Web App that encourages mindful
+              breaks through personalized Spotify playlist suggestions, mood
+              check-ins, and reflection journaling. Its screens guide users
+              through choosing music, checking in before and after a break,
+              planning a small act of self-care, and reviewing their journey.
+            </p>
+
+            <dl class="project-facts">
+              <div>
+                <dt>MY ROLE / CONTRIBUTION</dt>
+
+                <dd>
+                  Full-Stack Developer. My contribution covers the web
+                  application’s interface and supporting application logic
+                  for its digital wellness experience.
+                </dd>
+              </div>
+
+              <div>
+                <dt>BUILT WITH</dt>
+                <dd>Next.js · React · TypeScript · PWA</dd>
+              </div>
+
+              <div>
+                <dt>DOCUMENTED FEATURES</dt>
+
+                <dd>
+                  Playlist collection · Mood check-ins · Reflection
+                  journaling · Self-care reset · Journey overview ·
+                  Profile preferences
+                </dd>
+              </div>
+            </dl>
+
+            <div class="project-links">
+              <a
+                class="text-link"
+                href="https://github.com/john-carl-layosa/digital-wellness-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub source ↗
+              </a>
+
+              <a
+                class="button"
+                href="https://digital-wellness-app.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live project ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="project-evidence">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/wellness-home.jpg"
+                data-preview
+                data-gallery="wellness"
+                data-title="Rhythms of Relief home"
+              >
+                <img
+                  src="assets/evidence/wellness-home.jpg"
+                  alt="Rhythms of Relief home"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Rhythms of Relief home</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <details class="screen-details">
+          <summary>
+            Explore all supporting images <span>+</span>
+          </summary>
+
+          <div class="evidence-grid">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/wellness-rhythm.jpg"
+                data-preview
+                data-gallery="wellness"
+                data-title="My Rhythm playlist collection"
+              >
+                <img
+                  src="assets/evidence/wellness-rhythm.jpg"
+                  alt="My Rhythm playlist collection"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>My Rhythm playlist collection</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/wellness-explore.jpg"
+                data-preview
+                data-gallery="wellness"
+                data-title="Explore Your Collection"
+              >
+                <img
+                  src="assets/evidence/wellness-explore.jpg"
+                  alt="Explore Your Collection"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Explore Your Collection</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/wellness-pause.jpg"
+                data-preview
+                data-gallery="wellness"
+                data-title="My Pause mood check-in"
+              >
+                <img
+                  src="assets/evidence/wellness-pause.jpg"
+                  alt="My Pause mood check-in"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>My Pause mood check-in</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/wellness-reset.jpg"
+                data-preview
+                data-gallery="wellness"
+                data-title="My Reset self-care reflection"
+              >
+                <img
+                  src="assets/evidence/wellness-reset.jpg"
+                  alt="My Reset self-care reflection"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>My Reset self-care reflection</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/wellness-journey.jpg"
+                data-preview
+                data-gallery="wellness"
+                data-title="My Journey overview"
+              >
+                <img
+                  src="assets/evidence/wellness-journey.jpg"
+                  alt="My Journey overview"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>My Journey overview</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/wellness-profile.jpg"
+                data-preview
+                data-gallery="wellness"
+                data-title="Profile and preferences"
+              >
+                <img
+                  src="assets/evidence/wellness-profile.jpg"
+                  alt="Profile and preferences"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Profile and preferences</figcaption>
+            </figure>
+          </div>
+        </details>
+      </article>
+
+      <!-- =========================================
+           03 / SMART TRASH BIN
+           ========================================= -->
+      <article
+        class="project-case"
+        id="smart-trash-bin"
+        data-category="web iot"
+      >
+        <div class="project-case-heading">
+          <span class="big-number">03</span>
+
+          <div>
+            <p class="eyebrow">IOT / EDUCATIONAL PROTOTYPE</p>
+
+            <h2>
+              AI-Enabled Smart Trash Bin<span class="title-period">.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-description">
+            <h3>Smarter sorting.<br>Clearer monitoring.</h3>
+
+            <p>
+              An educational project designed to classify waste as
+              biodegradable, non-biodegradable, or recyclable. It combines
+              a camera, AI-based image classification, sensors, and servo
+              motors to explore automated waste segregation. A digital
+              dashboard supports viewing bin status, classification records,
+              alerts, and maintenance activities.
+            </p>
+
+            <dl class="project-facts">
+              <div>
+                <dt>MY ROLE / CONTRIBUTION</dt>
+
+                <dd>
+                  Hardware. My contribution focused on the project’s physical
+                  hardware component, alongside the team’s software and
+                  monitoring work.
+                </dd>
+              </div>
+
+              <div>
+                <dt>TECHNOLOGIES / COMPONENTS</dt>
+
+                <dd>
+                  Dart · Firebase · Camera · AI image classification ·
+                  Sensors · Servo motors
+                </dd>
+              </div>
+
+              <div>
+                <dt>OBJECTIVES</dt>
+
+                <dd>
+                  Explore automated waste classification and segregation;
+                  connect physical bin activity with digital monitoring.
+                </dd>
+              </div>
+            </dl>
+
+            <div class="project-links">
+              <a
+                class="text-link"
+                href="https://github.com/Kmontajas/Smart-Trash-Bin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub source ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="project-evidence">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/trash-hardware.jpg"
+                data-preview
+                data-gallery="smart-trash-bin"
+                data-title="Smart Trash Bin hardware setup"
+              >
+                <img
+                  src="assets/evidence/trash-hardware.jpg"
+                  alt="Smart Trash Bin hardware setup"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>Smart Trash Bin hardware setup</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <details class="screen-details">
+          <summary>
+            Explore all supporting images <span>+</span>
+          </summary>
+
+          <div class="evidence-grid">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="assets/evidence/trash-dashboard.jpg"
+                data-preview
+                data-gallery="smart-trash-bin"
+                data-title="Smart Trash Bin monitoring dashboard; account details removed"
+              >
+                <img
+                  src="assets/evidence/trash-dashboard.jpg"
+                  alt="Smart Trash Bin monitoring dashboard; account details removed"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>
+                Smart Trash Bin monitoring dashboard; account details removed
+              </figcaption>
+            </figure>
+          </div>
+        </details>
+      </article>
+
+      <!-- =========================================
+           04 / DOMINOTES
+           ========================================= -->
+      <article class="project-case" id="dominotes" data-category="web pwa">
+        <div class="project-case-heading">
+          <span class="big-number">04</span>
 
           <div>
             <p class="eyebrow">WEB APPLICATION / PROGRESSIVE WEB APP</p>
             <h2>DomiNotes<span class="title-period">.</span></h2>
           </div>
-
-          <a
-            class="button"
-            href="https://dominotess.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Live project <span>↗</span>
-          </a>
         </div>
 
         <div class="project-body">
@@ -82,13 +809,21 @@
 
             <p>
               DomiNotes is a secure, offline-capable Progressive Web App
-              (PWA) developed using Flutter Web, designed to provide
-              users with an efficient and organized way to manage notes
-              and folders through a clean, minimalist, iOS-inspired
-              interface.
+              (PWA) developed using Flutter Web, designed to provide users
+              with an efficient and organized way to manage notes and
+              folders through a clean, minimalist, iOS-inspired interface.
             </p>
 
             <dl class="project-facts">
+              <div>
+                <dt>MY ROLE / CONTRIBUTION</dt>
+
+                <dd>
+                  Front-End Developer. My contribution focused on the
+                  Flutter Web interface for organizing notes and folders.
+                </dd>
+              </div>
+
               <div>
                 <dt>BUILT WITH</dt>
                 <dd>Flutter Web · Dart · Hive NoSQL</dd>
@@ -96,136 +831,200 @@
 
               <div>
                 <dt>KEY FEATURES</dt>
+
                 <dd>
                   PIN authentication · Folders · Dark mode · Full offline support
                 </dd>
               </div>
             </dl>
 
-            <p class="small-label">EXPLORE THE SCREENS →</p>
+            <div class="project-links">
+              <a
+                class="text-link"
+                href="https://github.com/shanti-ryuu/domini"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub source ↗
+              </a>
+
+              <a
+                class="button"
+                href="https://dominotess.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live project ↗
+              </a>
+            </div>
           </div>
 
-          <div
-            class="carousel"
-            aria-label="DomiNotes screenshots"
-            aria-roledescription="carousel"
-          >
-            <a
-              href="DomiNotes1.jpg"
-              class="carousel-preview"
-              data-carousel-preview
-            >
-              <img
-                id="project-slide"
-                src="DomiNotes1.jpg"
-                alt="DomiNotes screenshot 1 of 5"
-                width="400"
-                height="800"
+          <div class="project-evidence">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="DomiNotes1.jpg"
+                data-preview
+                data-gallery="dominotes"
+                data-title="DomiNotes — Screenshot 1"
               >
-            </a>
+                <img
+                  src="DomiNotes1.jpg"
+                  alt="DomiNotes screenshot 1"
+                  loading="lazy"
+                >
 
-            <div class="carousel-controls" hidden>
-              <button data-slide="-1" aria-label="Previous screenshot">←</button>
-              <span id="slide-count" aria-live="polite">01 / 05</span>
-              <button data-slide="1" aria-label="Next screenshot">→</button>
-            </div>
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
 
-            <span class="carousel-caption">Click image to enlarge</span>
+              <figcaption>DomiNotes — Screenshot 1</figcaption>
+            </figure>
           </div>
         </div>
 
         <details class="screen-details">
           <summary>
-            View all five screenshots <span>+</span>
+            Explore all supporting images <span>+</span>
           </summary>
 
-          <div class="screenshot-strip">
-            <a
-              class="screenshot-thumb"
-              href="DomiNotes1.jpg"
-              data-preview
-              data-gallery="dominotes"
-              data-title="DomiNotes — Screenshot 1"
-            >
-              <img src="DomiNotes1.jpg" alt="DomiNotes screenshot 1" loading="lazy">
-              <span>01 ↗</span>
-            </a>
+          <div class="evidence-grid">
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="DomiNotes2.jpg"
+                data-preview
+                data-gallery="dominotes"
+                data-title="DomiNotes — Screenshot 2"
+              >
+                <img
+                  src="DomiNotes2.jpg"
+                  alt="DomiNotes screenshot 2"
+                  loading="lazy"
+                >
 
-            <a
-              class="screenshot-thumb"
-              href="DomiNotes2.jpg"
-              data-preview
-              data-gallery="dominotes"
-              data-title="DomiNotes — Screenshot 2"
-            >
-              <img src="DomiNotes2.jpg" alt="DomiNotes screenshot 2" loading="lazy">
-              <span>02 ↗</span>
-            </a>
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
 
-            <a
-              class="screenshot-thumb"
-              href="DomiNotes3.jpg"
-              data-preview
-              data-gallery="dominotes"
-              data-title="DomiNotes — Screenshot 3"
-            >
-              <img src="DomiNotes3.jpg" alt="DomiNotes screenshot 3" loading="lazy">
-              <span>03 ↗</span>
-            </a>
+              <figcaption>DomiNotes — Screenshot 2</figcaption>
+            </figure>
 
-            <a
-              class="screenshot-thumb"
-              href="DomiNotes4.jpg"
-              data-preview
-              data-gallery="dominotes"
-              data-title="DomiNotes — Screenshot 4"
-            >
-              <img src="DomiNotes4.jpg" alt="DomiNotes screenshot 4" loading="lazy">
-              <span>04 ↗</span>
-            </a>
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="DomiNotes3.jpg"
+                data-preview
+                data-gallery="dominotes"
+                data-title="DomiNotes — Screenshot 3"
+              >
+                <img
+                  src="DomiNotes3.jpg"
+                  alt="DomiNotes screenshot 3"
+                  loading="lazy"
+                >
 
-            <a
-              class="screenshot-thumb"
-              href="DomiNotes5.jpg"
-              data-preview
-              data-gallery="dominotes"
-              data-title="DomiNotes — Screenshot 5"
-            >
-              <img src="DomiNotes5.jpg" alt="DomiNotes screenshot 5" loading="lazy">
-              <span>05 ↗</span>
-            </a>
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>DomiNotes — Screenshot 3</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="DomiNotes4.jpg"
+                data-preview
+                data-gallery="dominotes"
+                data-title="DomiNotes — Screenshot 4"
+              >
+                <img
+                  src="DomiNotes4.jpg"
+                  alt="DomiNotes screenshot 4"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>DomiNotes — Screenshot 4</figcaption>
+            </figure>
+
+            <figure>
+              <a
+                class="project-evidence-image"
+                href="DomiNotes5.jpg"
+                data-preview
+                data-gallery="dominotes"
+                data-title="DomiNotes — Screenshot 5"
+              >
+                <img
+                  src="DomiNotes5.jpg"
+                  alt="DomiNotes screenshot 5"
+                  loading="lazy"
+                >
+
+                <span class="preview-tag">View evidence ↗</span>
+              </a>
+
+              <figcaption>DomiNotes — Screenshot 5</figcaption>
+            </figure>
           </div>
         </details>
       </article>
 
-      <p class="empty-state" hidden>No projects match this filter.</p>
+      <p class="empty-state" hidden>
+        No projects match this filter.
+      </p>
     </section>
 
-    <section class="section closing" data-reveal>
+    <!-- CLOSING SECTION -->
+    <section class="section closing">
       <p class="eyebrow">BEHIND EVERY PROJECT</p>
+
       <h2>A growing toolkit.<br><em>A lot of curiosity.</em></h2>
-      <a class="text-link" href="tech-stack.html">See what I work with ↗</a>
+
+      <a class="text-link" href="tech-stack.html">
+        See what I work with ↗
+      </a>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <a class="footer-sign" href="index.html">
       JC Layosa<span> / Always a work in progress.</span>
     </a>
 
     <div>
-      <a href="https://github.com/john-carl-layosa" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/layosa-j-408340358" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a
+        href="https://github.com/john-carl-layosa"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/layosa-j-408340358"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn ↗
+      </a>
+
       <a href="#main">Back to top ↑</a>
     </div>
 
     <p>Built with curiosity. HTML, CSS &amp; JavaScript.</p>
   </footer>
 
+  <!-- IMAGE PREVIEW -->
   <dialog class="lightbox" aria-labelledby="preview-title">
     <div class="lightbox-top">
       <h2 id="preview-title">Image preview</h2>
-      <button class="close-preview" autofocus>Close ×</button>
+
+      <button class="close-preview" autofocus>
+        Close ×
+      </button>
     </div>
 
     <div class="preview-stage">
@@ -233,10 +1032,24 @@
     </div>
 
     <div class="preview-bottom">
-      <button class="preview-prev" aria-label="Previous image">← Previous</button>
+      <button class="preview-prev" aria-label="Previous image">
+        ← Previous
+      </button>
+
       <span class="preview-count" aria-live="polite"></span>
-      <a class="preview-original" href="pic.jpg" target="_blank" rel="noopener noreferrer">Open original ↗</a>
-      <button class="preview-next" aria-label="Next image">Next →</button>
+
+      <a
+        class="preview-original"
+        href="pic.jpg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open original ↗
+      </a>
+
+      <button class="preview-next" aria-label="Next image">
+        Next →
+      </button>
     </div>
   </dialog>
 </body>

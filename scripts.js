@@ -1,6 +1,5 @@
 /* =========================================================
    JC Layosa — Shared Website Interactions
-   No external libraries or API connections required.
    ========================================================= */
 
 (() => {
@@ -68,6 +67,119 @@
       .addEventListener("change", () => closeMenu());
   }
 
+  /* PROJECT IMAGE CAROUSELS */
+
+  const projectCarousels = new Map();
+  const projectGalleries = new Map();
+
+  document.querySelectorAll(".project-case").forEach((project) => {
+    const container = project.querySelector(".project-evidence");
+    const mainLink = container?.querySelector("[data-preview]");
+    const mainImage = mainLink?.querySelector("img");
+
+    if (!container || !mainLink || !mainImage) {
+      return;
+    }
+
+    const galleryName = mainLink.dataset.gallery;
+
+    // Store the original images before changing the main preview.
+    const items = [...project.querySelectorAll("[data-preview]")]
+      .filter((link) => {
+        return link.dataset.gallery === galleryName;
+      })
+      .map((link) => ({
+        src: link.getAttribute("href"),
+        title: link.dataset.title,
+        alt: link.querySelector("img").alt
+      }));
+
+    if (items.length < 2) {
+      return;
+    }
+
+    const name = project.querySelector("h2").textContent.trim();
+    const caption = container.querySelector("figcaption");
+
+    const state = {
+      items,
+      index: 0
+    };
+
+    projectCarousels.set(mainLink, state);
+    projectGalleries.set(galleryName, items);
+
+    container.setAttribute("role", "region");
+    container.setAttribute("aria-roledescription", "carousel");
+    container.setAttribute("aria-label", `${name} images`);
+
+    const controls = document.createElement("div");
+
+    controls.className = "carousel-controls";
+    controls.style.justifyContent = "center";
+
+    const previous = document.createElement("button");
+
+    previous.type = "button";
+    previous.textContent = "←";
+    previous.setAttribute(
+      "aria-label",
+      `Previous ${name} image`
+    );
+
+    const counter = document.createElement("span");
+
+    counter.setAttribute("aria-live", "polite");
+    counter.setAttribute("aria-atomic", "true");
+
+    const next = document.createElement("button");
+
+    next.type = "button";
+    next.textContent = "→";
+    next.setAttribute(
+      "aria-label",
+      `Next ${name} image`
+    );
+
+    const render = () => {
+      const item = items[state.index];
+
+      mainImage.src = item.src;
+      mainImage.alt = item.alt;
+
+      mainLink.href = item.src;
+      mainLink.dataset.title = item.title;
+
+      if (caption) {
+        caption.textContent = item.title;
+      }
+
+      counter.textContent =
+        `${String(state.index + 1).padStart(2, "0")} / ` +
+        String(items.length).padStart(2, "0");
+    };
+
+    const move = (step) => {
+      state.index =
+        (state.index + step + items.length) % items.length;
+
+      render();
+    };
+
+    previous.addEventListener("click", () => {
+      move(-1);
+    });
+
+    next.addEventListener("click", () => {
+      move(1);
+    });
+
+    controls.append(previous, counter, next);
+    container.append(controls);
+
+    render();
+  });
+
   /* SCROLL REVEALS */
 
   const reducedMotion = window.matchMedia(
@@ -89,7 +201,39 @@
       }
     );
 
-    document.querySelectorAll("[data-reveal]").forEach((element) => {
+    const revealTargets = new Set(
+      document.querySelectorAll("[data-reveal]")
+    );
+
+    if (
+      document.querySelector(
+        ".project-archive, .credential-archive, .contact-section"
+      )
+    ) {
+      document
+        .querySelectorAll(
+          [
+            ".page-intro",
+            ".filter-toolbar",
+            ".project-case-heading",
+            ".project-description",
+            ".project-evidence",
+            ".carousel",
+            ".screen-details",
+            ".project-group-heading",
+            ".project-archive + .closing",
+            ".certificate-entry",
+            ".contact-section > .eyebrow",
+            ".contact-section > .contact-row",
+            ".contact-note"
+          ].join(", ")
+        )
+        .forEach((element) => {
+          revealTargets.add(element);
+        });
+    }
+
+    revealTargets.forEach((element) => {
       element.classList.add("reveal-ready");
       observer.observe(element);
     });
@@ -99,7 +243,11 @@
 
   document.querySelectorAll(".filter-toolbar").forEach((toolbar) => {
     const archive = toolbar.parentElement;
-    const items = [...archive.querySelectorAll("[data-category]")];
+
+    const items = [
+      ...archive.querySelectorAll("[data-category]")
+    ];
+
     const controls = toolbar.querySelector(".filter-buttons");
     const count = toolbar.querySelector(".result-count");
     const empty = archive.querySelector(".empty-state");
@@ -168,9 +316,12 @@
   const slideLink = document.querySelector("[data-carousel-preview]");
 
   if (slide && slideLink) {
-    document.querySelector(".carousel-controls").hidden = false;
+    const carousel = slide.closest(".carousel");
+    const controls = carousel.querySelector(".carousel-controls");
 
-    document.querySelectorAll("[data-slide]").forEach((button) => {
+    controls.hidden = false;
+
+    carousel.querySelectorAll("[data-slide]").forEach((button) => {
       button.addEventListener("click", () => {
         slideIndex =
           (
@@ -183,7 +334,7 @@
         slide.alt = screenshots[slideIndex].alt;
         slideLink.href = screenshots[slideIndex].src;
 
-        document.querySelector("#slide-count").textContent =
+        carousel.querySelector("#slide-count").textContent =
           `0${slideIndex + 1} / 05`;
       });
     });
@@ -193,7 +344,7 @@
 
   const dialog = document.querySelector(".lightbox");
 
-  // Normal image links remain usable in browsers without dialog support.
+  // Keep normal image links usable without dialog support.
   if (!dialog || typeof dialog.showModal !== "function") {
     return;
   }
@@ -212,6 +363,7 @@
 
     preview.src = item.src;
     preview.alt = item.alt;
+
     title.textContent = item.title;
     original.href = item.src;
 
@@ -244,7 +396,6 @@
 
   document.querySelectorAll("[data-preview]").forEach((link) => {
     link.addEventListener("click", (event) => {
-      // Preserve opening links in a new tab with modifier keys.
       if (
         event.ctrlKey ||
         event.metaKey ||
@@ -256,6 +407,25 @@
 
       event.preventDefault();
 
+      // Open project images using their original gallery order.
+      const projectItems = projectGalleries.get(
+        link.dataset.gallery
+      );
+
+      if (projectItems) {
+        const state = projectCarousels.get(link);
+
+        const index = state
+          ? state.index
+          : projectItems.findIndex((item) => {
+              return item.src === link.getAttribute("href");
+            });
+
+        openPreview(projectItems, Math.max(0, index), link);
+        return;
+      }
+
+      // Certificates and other image galleries.
       const peers = [
         ...document.querySelectorAll("[data-preview]")
       ].filter((peer) => {
@@ -287,6 +457,7 @@
       }
 
       event.preventDefault();
+
       openPreview(screenshots, slideIndex, slideLink);
     });
   }
