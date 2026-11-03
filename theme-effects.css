@@ -1,0 +1,277 @@
+/* =========================================================
+   ANIMATED CREAM PAPER + FINE FILM GRAIN
+   ========================================================= */
+
+:root {
+  --paper-grain-opacity: 0.07;
+}
+
+html {
+  background-color: #faf7f0;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Background layers remain behind the website content. */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -16%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================================================
+   WARM CREAM BACKGROUND
+   ========================================================= */
+
+body::before {
+  background:
+    radial-gradient(
+      ellipse at 12% 18%,
+      #fffef9 0%,
+      #fffef900 52%
+    ),
+    radial-gradient(
+      ellipse at 86% 22%,
+      #eee3cf 0%,
+      #eee3cf00 57%
+    ),
+    radial-gradient(
+      ellipse at 26% 88%,
+      #f0e5d2 0%,
+      #f0e5d200 56%
+    ),
+    linear-gradient(
+      125deg,
+      #fffdf7,
+      #f8f3e8 48%,
+      #f3ebdd
+    );
+
+  animation: cream-flow 24s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   PAPER TEXTURE / FILM GRAIN
+
+   The texture is embedded directly in the CSS.
+   No additional image file or download is needed.
+   ========================================================= */
+
+body::after {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22180%22%20height%3D%22180%22%20viewBox%3D%220%200%20180%20180%22%3E%3Cfilter%20id%3D%22grain%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.85%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%20seed%3D%2211%22%2F%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url%28%23grain%29%22%2F%3E%3C%2Fsvg%3E");
+
+  background-repeat: repeat;
+  background-size: 180px 180px;
+
+  opacity: var(--paper-grain-opacity);
+  mix-blend-mode: multiply;
+
+  animation: paper-grain 1.2s steps(1, end) infinite;
+}
+
+/* Slow movement underneath the paper texture. */
+
+@keyframes cream-flow {
+  0% {
+    transform:
+      translate(-5%, -3%)
+      scale(1.02)
+      rotate(-2deg);
+  }
+
+  50% {
+    transform:
+      translate(4%, 3%)
+      scale(1.07)
+      rotate(1deg);
+  }
+
+  100% {
+    transform:
+      translate(-1%, 5%)
+      scale(1.03)
+      rotate(2deg);
+  }
+}
+
+/* Tiny stepped movements create the film-grain effect. */
+
+@keyframes paper-grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  15% {
+    transform: translate(-3px, 2px);
+  }
+
+  30% {
+    transform: translate(2px, -3px);
+  }
+
+  45% {
+    transform: translate(-2px, -1px);
+  }
+
+  60% {
+    transform: translate(3px, 1px);
+  }
+
+  75% {
+    transform: translate(-1px, 3px);
+  }
+
+  90% {
+    transform: translate(1px, -2px);
+  }
+}
+
+/* =========================================================
+   NAME HIGHLIGHTS — HOME AND ABOUT
+   ========================================================= */
+
+.name-highlight {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+
+  color: var(--ink, #20241f);
+  font-family: var(--serif, Georgia, serif);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.25;
+
+  padding: 0 0.08em 0.09em;
+}
+
+/* Warm marker-style underline. */
+
+.name-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 58% -0.04em 0.04em;
+  z-index: -1;
+
+  border-radius: 45% 8% 38% 12%;
+
+  background: linear-gradient(
+    100deg,
+    #e5d3b2,
+    #f2e5cb,
+    #dec8a0
+  );
+
+  transform: scaleX(1) rotate(-1deg);
+  transform-origin: left center;
+
+  animation:
+    name-underline 1.1s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    0.2s both;
+}
+
+/* Subtle shimmer across the name. */
+
+.name-highlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  border-radius: 4px;
+
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    #fffdf578 49%,
+    transparent 63%
+  );
+
+  background-size: 250% 100%;
+  background-position: 160% 0;
+
+  animation: name-glint 9s ease-in-out infinite;
+}
+
+.hero-description .name-highlight--featured {
+  display: table;
+  max-width: 100%;
+  margin-bottom: 15px;
+
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+}
+
+.intro-copy .name-highlight {
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+}
+
+.name-inline {
+  color: var(--ink, #20241f);
+  font-weight: 700;
+
+  text-decoration: underline;
+  text-decoration-color: #d9c39e;
+  text-decoration-thickness: 0.15em;
+  text-underline-offset: 0.15em;
+}
+
+.hello .name-short {
+  color: var(--accent, #b83e2c);
+  font-family: var(--serif, Georgia, serif);
+  font-size: 1.3em;
+  font-style: italic;
+  font-weight: 700;
+}
+
+@keyframes name-underline {
+  from {
+    transform: scaleX(0) rotate(-1deg);
+  }
+
+  to {
+    transform: scaleX(1) rotate(-1deg);
+  }
+}
+
+@keyframes name-glint {
+  0%,
+  65% {
+    background-position: 160% 0;
+  }
+
+  90%,
+  100% {
+    background-position: -65% 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 720px) {
+  .hero-description .name-highlight--featured {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+}
+
+/* Keep the texture static when reduced motion is enabled. */
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .name-highlight::before,
+  .name-highlight::after {
+    animation: none;
+  }
+
+  .name-highlight::after {
+    display: none;
+  }
+}
