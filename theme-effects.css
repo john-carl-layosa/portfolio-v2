@@ -1,9 +1,9 @@
 /* =========================================================
-   ANIMATED CREAM PAPER + FINE FILM GRAIN
+   CREAM BACKGROUND + SUBTLE ANIMATED PAPER TEXTURE
    ========================================================= */
 
 :root {
-  --paper-grain-opacity: 0.07;
+  --paper-grain-opacity: 0.03;
 }
 
 html {
@@ -15,19 +15,19 @@ body {
   isolation: isolate;
 }
 
-/* Background layers remain behind the website content. */
+/* Decorative layers stay behind the website content. */
 
 body::before,
 body::after {
   content: "";
   position: fixed;
-  inset: -16%;
+  inset: -18%;
   z-index: -1;
   pointer-events: none;
 }
 
 /* =========================================================
-   WARM CREAM BACKGROUND
+   WARM CREAM GRADIENT
    ========================================================= */
 
 body::before {
@@ -39,29 +39,52 @@ body::before {
     ),
     radial-gradient(
       ellipse at 86% 22%,
-      #eee3cf 0%,
-      #eee3cf00 57%
+      #e3d1b3 0%,
+      #e3d1b300 57%
     ),
     radial-gradient(
       ellipse at 26% 88%,
-      #f0e5d2 0%,
-      #f0e5d200 56%
+      #e9d9be 0%,
+      #e9d9be00 56%
     ),
     linear-gradient(
       125deg,
       #fffdf7,
-      #f8f3e8 48%,
-      #f3ebdd
+      #f6eddd 48%,
+      #eee0c9
     );
 
-  animation: cream-flow 24s ease-in-out infinite alternate;
+  animation: cream-flow 16s ease-in-out infinite alternate;
+}
+
+@keyframes cream-flow {
+  0% {
+    transform:
+      translate(-7%, -4%)
+      scale(1.04)
+      rotate(-3deg);
+  }
+
+  50% {
+    transform:
+      translate(6%, 4%)
+      scale(1.10)
+      rotate(2deg);
+  }
+
+  100% {
+    transform:
+      translate(-3%, 6%)
+      scale(1.05)
+      rotate(3deg);
+  }
 }
 
 /* =========================================================
-   PAPER TEXTURE / FILM GRAIN
+   STATIONARY PAPER TEXTURE / FILM GRAIN
 
-   The texture is embedded directly in the CSS.
-   No additional image file or download is needed.
+   Embedded directly in CSS.
+   No additional image file is required.
    ========================================================= */
 
 body::after {
@@ -69,68 +92,24 @@ body::after {
 
   background-repeat: repeat;
   background-size: 180px 180px;
+  background-position: 0 0;
 
   opacity: var(--paper-grain-opacity);
   mix-blend-mode: multiply;
 
-  animation: paper-grain 1.2s steps(1, end) infinite;
+  /* The texture stays in place. Only its intensity changes. */
+  transform: none;
+  animation: paper-texture-light 3s ease-in-out infinite;
 }
 
-/* Slow movement underneath the paper texture. */
-
-@keyframes cream-flow {
-  0% {
-    transform:
-      translate(-5%, -3%)
-      scale(1.02)
-      rotate(-2deg);
+@keyframes paper-texture-light {
+  0%,
+  100% {
+    opacity: 0.02;
   }
 
   50% {
-    transform:
-      translate(4%, 3%)
-      scale(1.07)
-      rotate(1deg);
-  }
-
-  100% {
-    transform:
-      translate(-1%, 5%)
-      scale(1.03)
-      rotate(2deg);
-  }
-}
-
-/* Tiny stepped movements create the film-grain effect. */
-
-@keyframes paper-grain {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-
-  15% {
-    transform: translate(-3px, 2px);
-  }
-
-  30% {
-    transform: translate(2px, -3px);
-  }
-
-  45% {
-    transform: translate(-2px, -1px);
-  }
-
-  60% {
-    transform: translate(3px, 1px);
-  }
-
-  75% {
-    transform: translate(-1px, 3px);
-  }
-
-  90% {
-    transform: translate(1px, -2px);
+    opacity: 0.04;
   }
 }
 
@@ -201,6 +180,8 @@ body::after {
   animation: name-glint 9s ease-in-out infinite;
 }
 
+/* Home page name. */
+
 .hero-description .name-highlight--featured {
   display: table;
   max-width: 100%;
@@ -209,9 +190,13 @@ body::after {
   font-size: clamp(1.6rem, 2.5vw, 2.3rem);
 }
 
+/* About page introduction name. */
+
 .intro-copy .name-highlight {
   font-size: clamp(1.45rem, 2.3vw, 2rem);
 }
+
+/* Name inside the About paragraph. */
 
 .name-inline {
   color: var(--ink, #20241f);
@@ -222,6 +207,8 @@ body::after {
   text-decoration-thickness: 0.15em;
   text-underline-offset: 0.15em;
 }
+
+/* Short name in the Home greeting. */
 
 .hello .name-short {
   color: var(--accent, #b83e2c);
@@ -253,7 +240,9 @@ body::after {
   }
 }
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 720px) {
   .hero-description .name-highlight--featured {
@@ -261,7 +250,9 @@ body::after {
   }
 }
 
-/* Keep the texture static when reduced motion is enabled. */
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   body::before,
@@ -269,6 +260,15 @@ body::after {
   .name-highlight::before,
   .name-highlight::after {
     animation: none;
+  }
+
+  body::before {
+    transform: none;
+  }
+
+  body::after {
+    transform: none;
+    opacity: var(--paper-grain-opacity);
   }
 
   .name-highlight::after {

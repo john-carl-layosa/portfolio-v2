@@ -5,6 +5,40 @@
 (() => {
   "use strict";
 
+  /* SHARED ACHIEVEMENTS NAVIGATION */
+
+  document.querySelectorAll('a[href="experience.html"]').forEach((link) => {
+    link.setAttribute("href", "achievements.html");
+  });
+
+  const siteNav = document.querySelector("#site-nav");
+
+  if (siteNav) {
+    let achievementLink = siteNav.querySelector(
+      'a[href="achievements.html"]'
+    );
+
+    if (!achievementLink) {
+      achievementLink = document.createElement("a");
+      achievementLink.href = "achievements.html";
+      achievementLink.textContent = "Achievements";
+
+      const contactLink = siteNav.querySelector(
+        'a[href="contact.html"]'
+      );
+
+      siteNav.insertBefore(achievementLink, contactLink);
+    }
+
+    if (window.location.pathname.endsWith("/achievements.html")) {
+      siteNav.querySelectorAll("[aria-current]").forEach((link) => {
+        link.removeAttribute("aria-current");
+      });
+
+      achievementLink.setAttribute("aria-current", "page");
+    }
+  }
+
   /* MOBILE NAVIGATION */
 
   const menu = document.querySelector(".menu-toggle");
@@ -77,34 +111,23 @@
     const mainLink = container?.querySelector("[data-preview]");
     const mainImage = mainLink?.querySelector("img");
 
-    if (!container || !mainLink || !mainImage) {
-      return;
-    }
+    if (!container || !mainLink || !mainImage) return;
 
     const galleryName = mainLink.dataset.gallery;
 
-    // Store the original images before changing the main preview.
     const items = [...project.querySelectorAll("[data-preview]")]
-      .filter((link) => {
-        return link.dataset.gallery === galleryName;
-      })
+      .filter((link) => link.dataset.gallery === galleryName)
       .map((link) => ({
         src: link.getAttribute("href"),
         title: link.dataset.title,
         alt: link.querySelector("img").alt
       }));
 
-    if (items.length < 2) {
-      return;
-    }
+    if (items.length < 2) return;
 
     const name = project.querySelector("h2").textContent.trim();
     const caption = container.querySelector("figcaption");
-
-    const state = {
-      items,
-      index: 0
-    };
+    const state = { items, index: 0 };
 
     projectCarousels.set(mainLink, state);
     projectGalleries.set(galleryName, items);
@@ -114,39 +137,28 @@
     container.setAttribute("aria-label", `${name} images`);
 
     const controls = document.createElement("div");
-
     controls.className = "carousel-controls";
     controls.style.justifyContent = "center";
 
     const previous = document.createElement("button");
-
     previous.type = "button";
     previous.textContent = "←";
-    previous.setAttribute(
-      "aria-label",
-      `Previous ${name} image`
-    );
+    previous.setAttribute("aria-label", `Previous ${name} image`);
 
     const counter = document.createElement("span");
-
     counter.setAttribute("aria-live", "polite");
     counter.setAttribute("aria-atomic", "true");
 
     const next = document.createElement("button");
-
     next.type = "button";
     next.textContent = "→";
-    next.setAttribute(
-      "aria-label",
-      `Next ${name} image`
-    );
+    next.setAttribute("aria-label", `Next ${name} image`);
 
     const render = () => {
       const item = items[state.index];
 
       mainImage.src = item.src;
       mainImage.alt = item.alt;
-
       mainLink.href = item.src;
       mainLink.dataset.title = item.title;
 
@@ -166,13 +178,8 @@
       render();
     };
 
-    previous.addEventListener("click", () => {
-      move(-1);
-    });
-
-    next.addEventListener("click", () => {
-      move(1);
-    });
+    previous.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
 
     controls.append(previous, counter, next);
     container.append(controls);
@@ -228,9 +235,7 @@
             ".contact-note"
           ].join(", ")
         )
-        .forEach((element) => {
-          revealTargets.add(element);
-        });
+        .forEach((element) => revealTargets.add(element));
     }
 
     revealTargets.forEach((element) => {
@@ -239,31 +244,23 @@
     });
   }
 
-  /* PROJECT AND CERTIFICATE FILTERS */
+  /* PROJECT, CERTIFICATE, AND ACHIEVEMENT FILTERS */
 
   document.querySelectorAll(".filter-toolbar").forEach((toolbar) => {
     const archive = toolbar.parentElement;
-
-    const items = [
-      ...archive.querySelectorAll("[data-category]")
-    ];
-
+    const items = [...archive.querySelectorAll("[data-category]")];
     const controls = toolbar.querySelector(".filter-buttons");
     const count = toolbar.querySelector(".result-count");
     const empty = archive.querySelector(".empty-state");
 
-    if (!controls) {
-      return;
-    }
+    if (!controls) return;
 
     controls.hidden = false;
 
     controls.addEventListener("click", (event) => {
       const button = event.target.closest("[data-filter]");
 
-      if (!button) {
-        return;
-      }
+      if (!button) return;
 
       controls.querySelectorAll("button").forEach((control) => {
         control.setAttribute(
@@ -289,9 +286,13 @@
         }
       });
 
-      const noun = archive.classList.contains("credential-archive")
-        ? "credential"
-        : "project";
+      const noun =
+        archive.dataset.itemName ||
+        (
+          archive.classList.contains("credential-archive")
+            ? "credential"
+            : "project"
+        );
 
       count.textContent =
         `${visible} ${noun}${visible === 1 ? "" : "s"}`;
@@ -302,7 +303,7 @@
     });
   });
 
-  /* DOMINOTES SLIDESHOW */
+  /* LEGACY DOMINOTES SLIDESHOW */
 
   const screenshots = Array.from({ length: 5 }, (_, index) => ({
     src: `DomiNotes${index + 1}.jpg`,
@@ -316,12 +317,12 @@
   const slideLink = document.querySelector("[data-carousel-preview]");
 
   if (slide && slideLink) {
-    const carousel = slide.closest(".carousel");
-    const controls = carousel.querySelector(".carousel-controls");
+    slide
+      .closest(".carousel")
+      .querySelector(".carousel-controls")
+      .hidden = false;
 
-    controls.hidden = false;
-
-    carousel.querySelectorAll("[data-slide]").forEach((button) => {
+    document.querySelectorAll("[data-slide]").forEach((button) => {
       button.addEventListener("click", () => {
         slideIndex =
           (
@@ -334,7 +335,7 @@
         slide.alt = screenshots[slideIndex].alt;
         slideLink.href = screenshots[slideIndex].src;
 
-        carousel.querySelector("#slide-count").textContent =
+        document.querySelector("#slide-count").textContent =
           `0${slideIndex + 1} / 05`;
       });
     });
@@ -344,7 +345,6 @@
 
   const dialog = document.querySelector(".lightbox");
 
-  // Keep normal image links usable without dialog support.
   if (!dialog || typeof dialog.showModal !== "function") {
     return;
   }
@@ -363,7 +363,6 @@
 
     preview.src = item.src;
     preview.alt = item.alt;
-
     title.textContent = item.title;
     original.href = item.src;
 
@@ -407,25 +406,21 @@
 
       event.preventDefault();
 
-      // Open project images using their original gallery order.
-      const projectItems = projectGalleries.get(
-        link.dataset.gallery
-      );
+      const projectItems = projectGalleries.get(link.dataset.gallery);
 
       if (projectItems) {
         const state = projectCarousels.get(link);
 
         const index = state
           ? state.index
-          : projectItems.findIndex((item) => {
-              return item.src === link.getAttribute("href");
-            });
+          : projectItems.findIndex(
+              (item) => item.src === link.getAttribute("href")
+            );
 
         openPreview(projectItems, Math.max(0, index), link);
         return;
       }
 
-      // Certificates and other image galleries.
       const peers = [
         ...document.querySelectorAll("[data-preview]")
       ].filter((peer) => {
@@ -457,7 +452,6 @@
       }
 
       event.preventDefault();
-
       openPreview(screenshots, slideIndex, slideLink);
     });
   }
@@ -486,15 +480,12 @@
       event.key === "ArrowRight"
     ) {
       event.preventDefault();
-
       movePreview(event.key === "ArrowLeft" ? -1 : 1);
     }
   });
 
   dialog.addEventListener("click", (event) => {
-    if (event.target !== dialog) {
-      return;
-    }
+    if (event.target !== dialog) return;
 
     const rect = dialog.getBoundingClientRect();
 
@@ -516,4 +507,38 @@
       opener.focus();
     }
   });
+})();
+
+/* ACHIEVEMENTS: NEWEST FIRST */
+(() => {
+  const gallery = document.querySelector(
+    "#achievements .certificate-gallery"
+  );
+
+  if (!gallery) return;
+
+  const getDate = (entry) => {
+    const value = entry
+      .querySelector("time[datetime]")
+      ?.getAttribute("datetime");
+
+    const date = value ? Date.parse(value) : NaN;
+
+    return Number.isNaN(date) ? -Infinity : date;
+  };
+
+  const entries = [
+    ...gallery.querySelectorAll(".certificate-entry")
+  ];
+
+  entries.sort((a, b) => {
+    const first = getDate(a);
+    const second = getDate(b);
+
+    if (first === second) return 0;
+
+    return first > second ? -1 : 1;
+  });
+
+  gallery.append(...entries);
 })();

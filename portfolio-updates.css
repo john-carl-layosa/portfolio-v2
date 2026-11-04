@@ -1,4 +1,8 @@
-/* Additions only: retain the existing portfolio design and shared stylesheet. */
+/* =========================================================
+   ADDITIONAL PORTFOLIO STYLES
+   ========================================================= */
+
+/* Archive navigation and project links */
 
 .archive-links,
 .project-links {
@@ -14,6 +18,8 @@
   border-bottom: 1px solid var(--line);
   padding-bottom: 6px;
 }
+
+/* Certificate descriptions */
 
 .credential-description {
   margin: 18px 0;
@@ -48,6 +54,8 @@
 .certificate-meta .eyebrow {
   font-size: 0.62rem;
 }
+
+/* Project sections */
 
 .project-case + .project-case,
 .project-group-heading {
@@ -119,6 +127,49 @@
   scroll-margin-top: 30px;
 }
 
+/* =========================================================
+   PROMINENT ACHIEVEMENTS SECTION
+   ========================================================= */
+
+.achievement-spotlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+
+  margin-top: 32px;
+  padding: 30px;
+
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+
+  background: #eee8dc;
+}
+
+.achievement-spotlight .small-label {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.achievement-spotlight h2 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  margin-bottom: 12px;
+}
+
+.achievement-spotlight p:not(.small-label) {
+  color: var(--muted);
+  font-size: 0.9rem;
+  max-width: 55ch;
+}
+
+.achievement-spotlight .button {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 720px) {
   .evidence-grid {
     grid-template-columns: 1fr;
@@ -142,5 +193,16 @@
 
   .archive-links {
     gap: 14px;
+  }
+
+  .achievement-spotlight {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    padding: 24px 20px;
+  }
+
+  .achievement-spotlight .button {
+    width: 100%;
   }
 }
