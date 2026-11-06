@@ -1,13 +1,13 @@
 /* SHARED ANIMATED CREAM BACKGROUND */
 
 html {
-  background-color: #fbf8f2;
+  background-color: #f6f3eb;
 }
 
 html body {
   position: relative;
   isolation: isolate;
-  background-color: #fbf8f2;
+  background-color: #f6f3eb;
 }
 
 body::before {
@@ -20,20 +20,20 @@ body::before {
   background-image:
     radial-gradient(
       ellipse at 32% 34%,
-      #ecddc4 0%,
-      #f2e5d299 30%,
-      #f2e5d200 63%
+      #e4dccb 0%,
+      #ebe4d799 30%,
+      #ebe4d700 63%
     ),
     radial-gradient(
       ellipse at 65% 66%,
-      #f1e6d7 0%,
-      #f5ecdf99 32%,
-      #f5ecdf00 65%
+      #e9e2d5 0%,
+      #f0ebdf99 32%,
+      #f0ebdf00 65%
     ),
     radial-gradient(
       ellipse at 49% 48%,
-      #fffbf5 0%,
-      #fffbf500 65%
+      #fbf8ef 0%,
+      #fbf8ef00 65%
     );
 
   background-repeat: no-repeat;

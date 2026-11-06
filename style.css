@@ -2339,3 +2339,22 @@ body {
   );
 }
 
+.site-header::before {
+  background: linear-gradient(
+    105deg,
+    #fffdf8eb 0%,
+    #f8f3e9eb 48%,
+    #eee3d0eb 100%
+  );
+}
+
+@supports ((backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px))) {
+  .site-header::before {
+    background: linear-gradient(
+      105deg,
+      #fffdf8de 0%,
+      #f8f3e9d8 48%,
+      #eee3d0d8 100%
+    );
+  }
+}
