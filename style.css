@@ -1428,12 +1428,12 @@ body.modal-open {
     min-width: 22px;
   }
 
-  .nav-enhanced nav {
-    display: none;
+  .nav-enhanced #site-nav {
+  display: none;
   }
 
-  .nav-enhanced nav.is-open {
-    display: grid;
+  .nav-enhanced #site-nav.is-open {
+  display: grid;
   }
 
   .site-header #site-nav {
@@ -2338,3 +2338,4 @@ body {
     transparent
   );
 }
+
