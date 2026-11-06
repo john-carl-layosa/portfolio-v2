@@ -3,13 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Connect with John Carl Layosa about internship opportunities, projects, and technology.">
+  <meta
+    name="description"
+    content="Connect with John Carl Layosa about internship opportunities, projects, and technology."
+  >
   <meta name="theme-color" content="#f4f1e9">
   <title>Contact | John Carl Layosa</title>
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .contact-row h2 {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 2vw, 24px);
+    }
+
+    .contact-logo {
+      flex: 0 0 auto;
+      width: clamp(32px, 4vw, 56px);
+      aspect-ratio: 1;
+      object-fit: contain;
+      padding: 6px;
+      background-color: transparent;
+    }
+
+    @media (max-width: 720px) {
+      .contact-row h2 {
+        font-size: clamp(1.6rem, 7vw, 2.8rem);
+      }
+    }
+  </style>
+
   <script src="scripts.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -19,7 +48,12 @@
       <span>JOHN CARL<br>LAYOSA</span>
     </a>
 
-    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" hidden>
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      hidden
+    >
       Menu <span aria-hidden="true">+</span>
     </button>
 
@@ -29,6 +63,7 @@
       <a href="tech-stack.html">Toolkit</a>
       <a href="projects.html">Projects</a>
       <a href="certificates.html">Certificates</a>
+      <a href="experience.html">Achievements</a>
       <a href="contact.html" aria-current="page">Contact</a>
     </nav>
   </header>
@@ -54,7 +89,14 @@
         rel="noopener noreferrer"
       >
         <span>01 / PROFESSIONAL</span>
-        <h2>LinkedIn</h2>
+        <h2>
+          <img
+            class="contact-logo"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/linkedin/linkedin-original.svg"
+            alt=""
+          >
+          LinkedIn
+        </h2>
         <span class="contact-arrow">↗</span>
       </a>
 
@@ -65,7 +107,14 @@
         rel="noopener noreferrer"
       >
         <span>02 / CODE &amp; PROJECTS</span>
-        <h2>GitHub</h2>
+        <h2>
+          <img
+            class="contact-logo"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/github/github-original.svg"
+            alt=""
+          >
+          GitHub
+        </h2>
         <span class="contact-arrow">↗</span>
       </a>
 
@@ -76,7 +125,14 @@
         rel="noopener noreferrer"
       >
         <span>03 / SAY HELLO</span>
-        <h2>Facebook</h2>
+        <h2>
+          <img
+            class="contact-logo"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/facebook/facebook-original.svg"
+            alt=""
+          >
+          Facebook
+        </h2>
         <span class="contact-arrow">↗</span>
       </a>
     </section>
@@ -95,8 +151,20 @@
     </a>
 
     <div>
-      <a href="https://github.com/john-carl-layosa" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/layosa-j-408340358" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a
+        href="https://github.com/john-carl-layosa"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
+      <a
+        href="https://www.linkedin.com/in/layosa-j-408340358"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn ↗
+      </a>
       <a href="#main">Back to top ↑</a>
     </div>
 
@@ -114,10 +182,21 @@
     </div>
 
     <div class="preview-bottom">
-      <button class="preview-prev" aria-label="Previous image">← Previous</button>
+      <button class="preview-prev" aria-label="Previous image">
+        ← Previous
+      </button>
       <span class="preview-count" aria-live="polite"></span>
-      <a class="preview-original" href="pic.jpg" target="_blank" rel="noopener noreferrer">Open original ↗</a>
-      <button class="preview-next" aria-label="Next image">Next →</button>
+      <a
+        class="preview-original"
+        href="pic.jpg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open original ↗
+      </a>
+      <button class="preview-next" aria-label="Next image">
+        Next →
+      </button>
     </div>
   </dialog>
 </body>

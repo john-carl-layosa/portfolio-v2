@@ -2322,3 +2322,19 @@ body {
   }
 }
 
+/* Fade the fixed header into the page background. */
+.site-header::before {
+  bottom: -18px;
+  border-bottom: 0;
+  box-shadow: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - 28px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - 28px),
+    transparent
+  );
+}
