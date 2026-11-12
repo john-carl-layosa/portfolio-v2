@@ -43,10 +43,64 @@
 
   const menu = document.querySelector(".menu-toggle");
   const nav = document.querySelector("#site-nav");
+  const header = menu?.closest(".site-header");
 
-  if (menu && nav) {
+  if (menu && nav && header) {
     menu.hidden = false;
     document.body.classList.add("nav-enhanced");
+
+    const mobileViewport = window.matchMedia("(max-width: 720px)");
+    const scrollThreshold = 8;
+    let scrollReference = 0;
+    let scrollFrame = 0;
+
+    const getScrollPosition = () => {
+      const page = document.scrollingElement;
+      const bottom = Math.max(0, page.scrollHeight - page.clientHeight);
+
+      return Math.min(bottom, Math.max(0, window.scrollY));
+    };
+
+    const showHeader = () => {
+      header.classList.remove("is-scroll-hidden");
+      scrollReference = getScrollPosition();
+    };
+
+    const updateHeader = () => {
+      scrollFrame = 0;
+
+      if (!mobileViewport.matches) return;
+
+      const scrollPosition = getScrollPosition();
+
+      if (
+        scrollPosition <= scrollThreshold ||
+        nav.classList.contains("is-open") ||
+        header.querySelector(":focus-visible")
+      ) {
+        showHeader();
+        return;
+      }
+
+      // Measure movement from the last high or low point to ignore scroll jitter.
+      if (header.classList.contains("is-scroll-hidden")) {
+        scrollReference = Math.max(scrollReference, scrollPosition);
+
+        if (scrollReference - scrollPosition >= scrollThreshold) {
+          showHeader();
+        }
+      } else {
+        scrollReference = Math.min(scrollReference, scrollPosition);
+
+        if (
+          scrollPosition >= header.offsetHeight &&
+          scrollPosition - scrollReference >= scrollThreshold
+        ) {
+          header.classList.add("is-scroll-hidden");
+          scrollReference = scrollPosition;
+        }
+      }
+    };
 
     const closeMenu = (restoreFocus = false) => {
       nav.classList.remove("is-open");
@@ -62,6 +116,8 @@
 
       menu.setAttribute("aria-expanded", String(open));
       nav.classList.toggle("is-open", open);
+
+      if (open) showHeader();
     });
 
     nav.addEventListener("click", (event) => {
@@ -88,17 +144,31 @@
       }
     });
 
-    document
-      .querySelector(".site-header")
-      .addEventListener("focusout", (event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) {
-          closeMenu();
-        }
-      });
+    header.addEventListener("focusout", (event) => {
+      if (!header.contains(event.relatedTarget)) {
+        closeMenu();
+      }
+    });
 
-    window
-      .matchMedia("(min-width: 721px)")
-      .addEventListener("change", () => closeMenu());
+    header.addEventListener("focusin", (event) => {
+      if (mobileViewport.matches && event.target.matches(":focus-visible")) {
+        showHeader();
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      if (mobileViewport.matches && !scrollFrame) {
+        scrollFrame = window.requestAnimationFrame(updateHeader);
+      }
+    }, { passive: true });
+
+    mobileViewport.addEventListener("change", () => {
+      closeMenu();
+      showHeader();
+    });
+
+    window.addEventListener("pageshow", showHeader);
+    showHeader();
   }
 
   /* PROJECT IMAGE CAROUSELS */

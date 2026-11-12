@@ -2358,3 +2358,21 @@ body {
     );
   }
 }
+
+/* Hide the fixed header on downward scroll on mobile. */
+@media (max-width: 720px) {
+  .nav-enhanced .site-header {
+    transition: transform 240ms ease-in-out;
+  }
+
+  .nav-enhanced .site-header.is-scroll-hidden {
+    /* Include the 18px background fade below the header. */
+    transform: translateY(calc(-100% - 18px));
+  }
+}
+
+@media (max-width: 720px) and (prefers-reduced-motion: reduce) {
+  .nav-enhanced .site-header {
+    transition: none;
+  }
+}
